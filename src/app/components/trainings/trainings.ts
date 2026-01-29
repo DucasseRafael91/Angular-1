@@ -24,9 +24,9 @@ export class TrainingComponent implements OnInit {
   filteredTrainings: Training[] = []; 
 
   constructor(
-    private dialog: MatDialog,
-    private cartService: CartService,
-    private router: Router
+    private readonly dialog: MatDialog,
+    private readonly cartService: CartService,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {

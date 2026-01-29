@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Customer } from './customers.model';
 import { NavBarComponent } from '../navbar/navbar';
@@ -10,11 +10,9 @@ import { NavBarComponent } from '../navbar/navbar';
   templateUrl: './customer.html',
   styleUrls: ['./customer.css'],
 })
-export class CustomerComponent implements OnInit {
+export class CustomerComponent {
 
   customer: Customer = new Customer('', '', '', '', '');
-
-  ngOnInit(): void {}
 
   OnSaveCustomer(customer: Customer) {
     console.log(customer);

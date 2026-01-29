@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -9,11 +9,9 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent{
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {}
+  constructor(private readonly router: Router) {}
 
   OnLogin() {
     this.router.navigate(['/trainings']);

@@ -6,7 +6,7 @@ import { Training } from '../components/trainings/trainings.model';
 })
 export class CartService {
   private cart: Training[] = [];
-  private storageKey = 'cart';
+  private readonly storageKey = 'cart';
 
   constructor() {
     const storedCart = localStorage.getItem(this.storageKey);
