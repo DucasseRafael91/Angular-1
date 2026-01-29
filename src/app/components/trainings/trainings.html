@@ -1,16 +1,26 @@
 <app-navbar></app-navbar>
 <div class="container">
+  <app-categorymenu (categoryChange)="onCategoryChange($event)" (priceChange)="onPriceChange($event)">
+</app-categorymenu>
+
+  <app-searchbar (searchChange)="onSearch($event)"></app-searchbar>
   <div class="row justify-content-center">
-    <div class="col-md-4 d-flex justify-content-center mb-4" *ngFor="let training of listTrainings">
-      <div class="card h-100 mx-auto" style="max-width: 18rem; cursor: pointer;" (click)="openDialog(training)">
-        <img [src]="training.image" class="card-img-top img-fixed" alt="{{ training.name }}">
+    <div class="col-md-4 d-flex justify-content-center mb-4" *ngFor="let training of filteredTrainings">
+      <div class="card h-100 mx-auto" style="max-width: 18rem; cursor: pointer;" (click)="openDialog(training)" >
+        <img [src]="training.image" class="card-img-top img-fixed" alt="{{ training.name }}" />
+
         <div class="card-body text-center">
           <h5 class="card-title">{{ training.name }}</h5>
           <p class="card-text">{{ training.description }}</p>
+          <p class="card-text">{{ training.price }} €</p>
+
           <div class="mb-3">
-            <input type="number" class="form-control mx-auto text-center" style="width: 80px" name="quantity" [(ngModel)]="training.quantity" (click)="$event.stopPropagation()" >
+            <input type="number" class="form-control mx-auto text-center" style="width: 80px" name="quantity" [(ngModel)]="training.quantity" (click)="$event.stopPropagation()" />
           </div>
-          <button class="btn btn-primary" (click)="onAddToCart(training); $event.stopPropagation()"> Ajouter au panier</button>
+
+          <button class="btn btn-primary" (click)="onAddToCart(training); $event.stopPropagation()">
+             Ajouter au panier
+          </button>
         </div>
       </div>
     </div>
