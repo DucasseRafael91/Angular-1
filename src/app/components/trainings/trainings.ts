@@ -9,6 +9,7 @@ import { TrainingModalComponent } from '../training-modal/training-modal';
 import { NavBarComponent } from '../navbar/navbar';
 import { SearchBarComponent } from '../searchbar/searchbar';
 import { CategoryMenuComponent } from '../categorymenu/categorymenu'
+import trainings from './trainings.json';
 
 @Component({
   selector: 'app-trainings',
@@ -29,12 +30,8 @@ export class TrainingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.listTrainings = [
-      { id: 1, name: 'Java', description: 'Formation Java SE 8 sur 5 jours', price: 1500, quantity: 1, image: 'images/java.png' },
-      { id: 2, name: 'DotNet', description: 'Formation DotNet 3 jours', price: 1000, quantity: 1, image: 'images/dotnet.png' },
-      { id: 3, name: 'Python', description: 'Formation Python/Django 5 jours', price: 1500, quantity: 1, image: 'images/python.png' }
-    ];
-    this.filteredTrainings = this.listTrainings; 
+  this.listTrainings = trainings;
+  this.filteredTrainings = this.listTrainings;
   }
 
   categoryTerm: string = '';
@@ -50,16 +47,34 @@ export class TrainingComponent implements OnInit {
     this.onSearch();
   }
 
-  onSearch(searchTerm?: string, priceTerm?: number) {
-    const category = searchTerm ?? this.categoryTerm;
-    const price = priceTerm ?? this.priceTerm;
+onSearch(searchTerm?: string, priceTerm?: number) {
+  const category = (searchTerm ?? this.categoryTerm)?.toLowerCase();
+  const price = priceTerm ?? this.priceTerm;
 
-    this.filteredTrainings = this.listTrainings.filter(training => {
-      const matchesName = category ? training.name.toLowerCase().includes(category.toLowerCase()) : true;
-      const matchesPrice = price ? training.price <= price : true;
-      return matchesName && matchesPrice;
-    });
-  }
+  this.filteredTrainings = this.listTrainings.filter(training => {
+    let matchesCategory: boolean;
+
+    if (!category) {
+      matchesCategory = true;
+    } else if (category === "toutes") {
+      matchesCategory = true;
+    } else {
+      matchesCategory = training.category.toLowerCase().includes(category);
+    }
+
+    let matchesPrice: boolean;
+
+    if (price) {
+      matchesPrice = training.price <= price;
+    } else {
+      matchesPrice = true;
+    }
+
+    return matchesCategory && matchesPrice;
+  });
+}
+
+
 
   openDialog(training: Training) {
     this.dialog.open(TrainingModalComponent, {
