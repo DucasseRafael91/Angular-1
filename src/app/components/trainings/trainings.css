@@ -3,3 +3,9 @@
     width: 100%; 
     object-fit: cover;
 }
+
+.sticky-wrapper {
+  position: sticky;
+  top: 100px; /* hauteur navbar */
+  width: 100%;
+}

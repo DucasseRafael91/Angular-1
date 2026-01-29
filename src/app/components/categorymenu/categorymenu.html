@@ -1,16 +1,20 @@
-<aside class="col-lg-3 col-xl-2 px-3">
+<div class="px-3">
   <div class="card p-3 shadow-sm sticky-top" style="top: 100px">
     <h5 class="fw-bold mb-3">Filtrer</h5>
 
     <!-- Filtre par catégorie -->
     <div class="mb-3">
       <label for="category-filter" class="form-label">Catégorie</label>
-        <select class="form-select" id="category-filter" [(ngModel)]="categoryTerm" (change)="onSearchChange()">
+      <select
+        class="form-select"
+        id="category-filter"
+        [(ngModel)]="categoryTerm"
+        (change)="onSearchChange()">
         <option value="all">Toutes</option>
         <option *ngFor="let category of uniqueCategories" [value]="category">
-            {{ category }}
+          {{ category }}
         </option>
-        </select>
+      </select>
     </div>
 
     <!-- Filtre par prix max -->
@@ -23,8 +27,7 @@
         placeholder="Ex : 1500"
         min="0"
         [(ngModel)]="priceTerm"
-        (input)="onSearchChange()"
-      />
+        (input)="onSearchChange()" />
     </div>
   </div>
-</aside>
+</div>

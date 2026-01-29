@@ -56,7 +56,7 @@ onSearch(searchTerm?: string, priceTerm?: number) {
 
     if (!category) {
       matchesCategory = true;
-    } else if (category === "toutes") {
+    } else if (category === "all") {
       matchesCategory = true;
     } else {
       matchesCategory = training.category.toLowerCase().includes(category);
