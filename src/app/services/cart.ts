@@ -6,20 +6,29 @@ import { Training } from '../components/trainings/trainings.model';
 })
 export class CartService {
   private cart: Training[] = [];
+  private storageKey = 'cart';
 
-  constructor() { }
-
-  addTraining(training: Training) {
-    this.cart.push({...training}); 
+  constructor() {
+    const storedCart = localStorage.getItem(this.storageKey);
+    if (storedCart) {
+      this.cart = JSON.parse(storedCart);
+    }
   }
 
-deleteTraining(training: Training) {
-  this.cart = this.cart.filter(t => t.id !== training.id);
-}
+  addTraining(training: Training) {
+    this.cart.push({ ...training });
+    localStorage.setItem(this.storageKey, JSON.stringify(this.cart));
+  }
 
-validateCart() {
-  this.cart = [];
-}
+  deleteTraining(training: Training) {
+    this.cart = this.cart.filter(t => t.id !== training.id);
+    localStorage.setItem(this.storageKey, JSON.stringify(this.cart));
+  }
+
+  validateCart() {
+    this.cart = [];
+    localStorage.setItem(this.storageKey, JSON.stringify(this.cart));
+  }
 
   getCart(): Training[] {
     return this.cart;
