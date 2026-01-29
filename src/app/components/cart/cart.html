@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>ID</th> 
+        <th>Nom</th> 
+        <th>Description</th> 
+        <th>Quantité</th> 
+        <th>Prix</th> 
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let training of listTrainings">
+        <td>{{ training.id }}</td>
+        <td>{{ training.name }}</td>
+        <td>{{ training.description }}</td>
+        <td>{{ training.quantity }}</td>
+        <td>{{ training.price }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="onDeleteToCart(training)">Supprimer</button>
+        </td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>{{ getTotal() }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-success" (click)="onValidateToCart()">Commander</button>
+</div>

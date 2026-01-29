@@ -1,0 +1,10 @@
+<h2 class="text-center">{{ training.name }}</h2>
+
+<img [src]="training.image" class="img-fluid mb-3" alt="{{ training.name }}">
+
+<p>{{ training.description }}</p>
+<p><strong>Prix :</strong> {{ training.price }} €</p>
+
+<div class="text-end">
+  <button class="btn btn-secondary me-2" (click)="closeModal()">Fermer</button>
+</div>
