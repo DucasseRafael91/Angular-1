@@ -85,6 +85,5 @@ onSearch(searchTerm?: string, priceTerm?: number) {
 
   onAddToCart(training: Training) {
     this.cartService.addTraining(training);
-    this.router.navigateByUrl('cart');
   }
 }
