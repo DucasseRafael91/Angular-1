@@ -1,0 +1,36 @@
+<aside class="col-lg-3 col-xl-2 px-3">
+  <div class="card p-3 shadow-sm sticky-top" style="top: 100px">
+    <h5 class="fw-bold mb-3">Filtrer</h5>
+
+    <!-- Filtre par catégorie -->
+    <div class="mb-3">
+      <label for="category-filter" class="form-label">Catégorie</label>
+      <select
+        class="form-select"
+        id="category-filter"
+        [(ngModel)]="categoryTerm"
+        (change)="onSearchChange()"
+      >
+        <option value="">Toutes</option>
+        <option value="aventure">Aventure</option>
+        <option value="culture">Culture</option>
+        <option value="nature">Nature</option>
+        <option value="detente">Détente</option>
+      </select>
+    </div>
+
+    <!-- Filtre par prix max -->
+    <div class="mb-3">
+      <label for="price-max" class="form-label">Prix maximum (€)</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price-max"
+        placeholder="Ex : 1500"
+        min="0"
+        [(ngModel)]="priceTerm"
+        (input)="onSearchChange()"
+      />
+    </div>
+  </div>
+</aside>
