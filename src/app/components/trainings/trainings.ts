@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,7 +8,7 @@ import { TrainingModalComponent } from '../training-modal/training-modal';
 import { NavBarComponent } from '../navbar/navbar';
 import { SearchBarComponent } from '../searchbar/searchbar';
 import { CategoryMenuComponent } from '../categorymenu/categorymenu'
-import db from '../../datas/db.json';
+import { ApiTrainingService } from '../../services/api-training-service';
 
 @Component({
   selector: 'app-trainings',
@@ -21,12 +21,12 @@ export class TrainingComponent implements OnInit {
 
   listTrainings: Training[] = [];
   filteredTrainings: Training[] = []; 
+  error: string | null = null; // <-- Add this line
 
-  constructor(private readonly dialog: MatDialog,private readonly cartService: CartService) {}
+  constructor(private readonly dialog: MatDialog,private readonly cartService: CartService, private readonly apiTrainingService: ApiTrainingService, private changeDetector: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-  this.listTrainings = db.trainings;
-  this.filteredTrainings = this.listTrainings;
+  this.getAllTrainings();
   }
 
   searchTerm: string = '';
@@ -42,6 +42,24 @@ export class TrainingComponent implements OnInit {
     this.searchTerm = search;
     this.onSearch();
   }
+
+getAllTrainings() {
+  this.apiTrainingService.getTrainings().subscribe({
+    next: (data) => {this.listTrainings = data ;
+      this.filteredTrainings = this.listTrainings;
+      this.changeDetector.markForCheck();
+      
+    },
+    error: (err) => {
+      this.error = err.message;
+      console.error('Erreur API :', err);
+    },
+    complete: () => {
+      console.log('Completed fetching trainings.');
+    }
+  });
+}
+
 
   onPriceChange(price: number) {
     this.priceTerm = price;
