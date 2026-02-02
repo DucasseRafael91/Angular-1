@@ -9,8 +9,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './searchbar.css',
 })
 export class SearchBarComponent {
-  searchTerm: string = '';
 
+  searchTerm: string = '';
   @Output() searchChange = new EventEmitter<string>();
 
   onSearchChange() {

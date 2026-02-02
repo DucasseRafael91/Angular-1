@@ -8,7 +8,7 @@ import { TrainingModalComponent } from '../training-modal/training-modal';
 import { NavBarComponent } from '../navbar/navbar';
 import { SearchBarComponent } from '../searchbar/searchbar';
 import { CategoryMenuComponent } from '../categorymenu/categorymenu'
-import trainings from './trainings.json';
+import trainings from '../../datas/trainings.json';
 
 @Component({
   selector: 'app-trainings',

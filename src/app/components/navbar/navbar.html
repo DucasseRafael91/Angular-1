@@ -16,17 +16,13 @@
     </li>
   </ul>
 
-  <!-- Partie droite -->
   <ul class="navbar-nav ms-auto">
-    <!-- Connecté -->
     <li class="nav-item" *ngIf="authService.isLogged(); else loginBtn">
       <span class="navbar-text me-3">{{ authService.getUsername() }}</span>
       <button class="btn btn-sm btn-outline-danger" (click)="authService.logout()">
         Déconnexion
       </button>
     </li>
-
-    <!-- Non connecté -->
     <ng-template #loginBtn>
       <li class="nav-item">
         <a class="nav-link" routerLink="/login">Se connecter</a>

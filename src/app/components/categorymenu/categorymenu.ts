@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import trainings from '../trainings/trainings.json';
+import trainings from '../../datas/trainings.json';
 import { Training } from '../trainings/trainings.model';
 
 @Component({
