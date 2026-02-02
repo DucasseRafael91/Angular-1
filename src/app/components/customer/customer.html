@@ -2,6 +2,7 @@
 <div class="container">
     <div class="col-md-3">
         <form #f="ngForm" (ngSubmit)="OnSaveCustomer(f.value)">
+
         <div class="form-group">
             <label class="control-label">Nom :
             <input type="text" name="name" required class="form-control" [(ngModel)]="customer!.name">
@@ -13,13 +14,12 @@
             <input type="text" name="firstName" required class="form-control" [(ngModel)]="customer!.firstName">
             </label>
         </div>
-
+        
         <div class="form-group">
             <label class="control-label">Addresse :
             <input type="text" name="address" required class="form-control" [(ngModel)]="customer!.address">
             </label>
         
-
             <div class="form-group">
             <label class="control-label">Tel :
             <input type="text" name="phone" required class="form-control" [(ngModel)]="customer!.phone">

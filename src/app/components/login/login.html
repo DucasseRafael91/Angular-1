@@ -3,15 +3,14 @@
 
 <div class="wrapper fadeInDown">
   <div id="formContent">
-    <form #f="ngForm" (ngSubmit)="OnLogin()">
+    <form #f="ngForm" (ngSubmit)="onLogin(f)">
       <div class="form-group">
-        <input type="text"id="login" required class="form-control" class="fadeIn second" name="login" placeholder="login" ngModel required >
+        <input type="text"id="login" required class="form-control" class="fadeIn second" name="login" placeholder="Identifiant" ngModel required >
       </div>
       <div class="form-group">
-        <input type="password" id="password" required class="form-control" class="fadeIn third" name="password"  placeholder="password" ngModel required >
+        <input type="password" id="password" required class="form-control" class="fadeIn third" name="password"  placeholder="Mot de passe" ngModel required >
       </div>
-      <input type="submit"  [disabled]="!f.valid" class="fadeIn fourth" value="Log In">
+      <input type="submit"  [disabled]="!f.valid" class="fadeIn fourth" value="Connexion">
     </form>
-
   </div>
 </div>

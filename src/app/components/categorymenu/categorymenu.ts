@@ -25,14 +25,12 @@ export class CategoryMenuComponent implements OnInit {
   ngOnInit(): void {
     this.listTrainings = trainings;
 
-    // Générer la liste unique de catégories
     const categoriesSet = new Set<string>();
     this.listTrainings.forEach(t => categoriesSet.add(t.category));
     this.uniqueCategories = Array.from(categoriesSet);
-    console.log(this.uniqueCategories)
   }
 
-  onSearchChange() {
+  onFilterChange() {
     this.categoryChange.emit(this.categoryTerm);
     this.priceChange.emit(this.priceTerm);
   }

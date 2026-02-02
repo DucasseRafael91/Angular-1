@@ -28,15 +28,20 @@ export class CartComponent implements OnInit {
 
     onValidateToCart() {
     this.cartService.validateCart();
-    alert("Commande Effectué");
+    alert("Commande Validé");
     globalThis.location.reload();
   }
 
-  getTotal(): number {
-  return this.listTrainings.reduce(
-    (total, training) => total + (training.price * training.quantity),
-    0
-  );
-}
+getTotal(): number {
+  let total = 0;
 
+  for (const training of this.listTrainings) {
+    const price = training.price;
+    const quantity = training.quantity;
+    const trainingTotal = price * quantity;
+
+    total = total + trainingTotal;
+  }
+  return total;
+}
 }

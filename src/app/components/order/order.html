@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>ID</th> 
+        <th>Date</th> 
+        <th>Formations</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of listOrders">
+        <td>{{ order.id }}</td>
+        <td>{{ order.date | date:'short' }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let training of order.trainings">
+              {{ training.name }} x {{ training.quantity}}
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

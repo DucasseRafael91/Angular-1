@@ -5,29 +5,16 @@
     <!-- Filtre par catégorie -->
     <div class="mb-3">
       <label for="category-filter" class="form-label">Catégorie</label>
-      <select
-        class="form-select"
-        id="category-filter"
-        [(ngModel)]="categoryTerm"
-        (change)="onSearchChange()">
+      <select class="form-select" id="category-filter" [(ngModel)]="categoryTerm" (change)="onFilterChange()">
         <option value="all">Toutes</option>
-        <option *ngFor="let category of uniqueCategories" [value]="category">
-          {{ category }}
-        </option>
+        <option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</option>
       </select>
     </div>
 
     <!-- Filtre par prix max -->
     <div class="mb-3">
       <label for="price-max" class="form-label">Prix maximum (€)</label>
-      <input
-        type="number"
-        class="form-control"
-        id="price-max"
-        placeholder="Ex : 1500"
-        min="0"
-        [(ngModel)]="priceTerm"
-        (input)="onSearchChange()" />
+      <input type="number" class="form-control" id="price-max" placeholder="Ex : 1500" min="0" [(ngModel)]="priceTerm" (input)="onFilterChange()" />
     </div>
   </div>
 </div>

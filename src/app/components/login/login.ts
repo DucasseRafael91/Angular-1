@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -9,11 +9,13 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-export class LoginComponent{
+export class LoginComponent {
 
   constructor(private readonly router: Router) {}
 
-  OnLogin() {
+  onLogin(form: any) {
+    const username = form.value.login;
+    localStorage.setItem('user',JSON.stringify({name: username,}));
     this.router.navigate(['/trainings']);
   }
 }
