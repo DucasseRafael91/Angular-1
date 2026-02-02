@@ -28,16 +28,13 @@ export class CategoryMenuComponent implements OnInit {
   ngOnInit(): void {
     this.getAllTrainings();
     const categoriesSet = new Set<string>();
-    console.log(this.listTrainings);
     this.listTrainings.forEach(t => categoriesSet.add(t.category));
-    console.log(categoriesSet);
     this.uniqueCategories = Array.from(categoriesSet);
   }
 
   getAllTrainings() {
   this.apiTrainingService.getTrainings().subscribe({
     next: (data) => {this.listTrainings = data ;
-      console.log(data);
     },
   });
 }

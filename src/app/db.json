@@ -121,6 +121,12 @@
       "mail": "hugo@gmail.com",
       "password": "1234",
       "roles": ["User"]
+    },
+    {
+      "id": 3,
+      "mail": "test",
+      "password": "test",
+      "roles": ["User"]
     }
   ]
 }
