@@ -1,0 +1,112 @@
+{
+  "trainings": [
+    {
+      "id": 1,
+      "name": "Java",
+      "description": "Formation Java SE 8 sur 5 jours",
+      "price": 1500,
+      "quantity": 1,
+      "image": "images/java.png",
+      "category": "Java"
+    },
+    {
+      "id": 2,
+      "name": "DotNet",
+      "description": "Formation DotNet 3 jours",
+      "price": 1000,
+      "quantity": 1,
+      "image": "images/dotnet.png",
+      "category": "DotNet"
+    },
+    {
+      "id": 3,
+      "name": "Python",
+      "description": "Formation Python/Django 5 jours",
+      "price": 1500,
+      "quantity": 1,
+      "image": "images/python.png",
+      "category": "Python"
+    },
+    {
+      "id": 4,
+      "name": "Angular",
+      "description": "Formation Angular 16 avancé sur 4 jours",
+      "price": 1200,
+      "quantity": 1,
+      "image": "images/angular.png",
+      "category": "Frontend"
+    },
+    {
+      "id": 5,
+      "name": "React",
+      "description": "Formation React JS 3 jours",
+      "price": 1000,
+      "quantity": 1,
+      "image": "images/react.png",
+      "category": "Frontend"
+    },
+    {
+      "id": 6,
+      "name": "Node.js",
+      "description": "Formation Node.js et Express 4 jours",
+      "price": 1300,
+      "quantity": 1,
+      "image": "images/node.png",
+      "category": "Backend"
+    },
+    {
+      "id": 7,
+      "name": "SQL",
+      "description": "Formation SQL et bases de données relationnelles 3 jours",
+      "price": 900,
+      "quantity": 1,
+      "image": "images/sql.png",
+      "category": "Database"
+    },
+    {
+      "id": 8,
+      "name": "MongoDB",
+      "description": "Formation MongoDB NoSQL 2 jours",
+      "price": 800,
+      "quantity": 1,
+      "image": "images/mongodb.png",
+      "category": "Database"
+    },
+    {
+      "id": 9,
+      "name": "Machine Learning",
+      "description": "Initiation au Machine Learning avec Python 5 jours",
+      "price": 1600,
+      "quantity": 1,
+      "image": "images/ml.png",
+      "category": "AI"
+    },
+    {
+      "id": 10,
+      "name": "Docker",
+      "description": "Formation Docker et containers 2 jours",
+      "price": 700,
+      "quantity": 1,
+      "image": "images/docker.png",
+      "category": "DevOps"
+    },
+    {
+      "id": 11,
+      "name": "Kubernetes",
+      "description": "Orchestration de conteneurs avec Kubernetes 3 jours",
+      "price": 1200,
+      "quantity": 1,
+      "image": "images/kubernetes.png",
+      "category": "DevOps"
+    },
+    {
+      "id": 12,
+      "name": "Cybersecurity Basics",
+      "description": "Introduction à la cybersécurité 3 jours",
+      "price": 1100,
+      "quantity": 1,
+      "image": "images/cybersecurity.png",
+      "category": "Security"
+    }
+  ]
+}

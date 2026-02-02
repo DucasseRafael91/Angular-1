@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import trainings from '../../datas/trainings.json';
+import db from '../../datas/db.json';
 import { Training } from '../trainings/trainings.model';
 
 @Component({
@@ -23,7 +23,7 @@ export class CategoryMenuComponent implements OnInit {
   @Output() priceChange = new EventEmitter<number>();
 
   ngOnInit(): void {
-    this.listTrainings = trainings;
+    this.listTrainings = db.trainings;
 
     const categoriesSet = new Set<string>();
     this.listTrainings.forEach(t => categoriesSet.add(t.category));

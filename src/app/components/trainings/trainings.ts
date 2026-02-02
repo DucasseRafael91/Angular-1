@@ -8,7 +8,7 @@ import { TrainingModalComponent } from '../training-modal/training-modal';
 import { NavBarComponent } from '../navbar/navbar';
 import { SearchBarComponent } from '../searchbar/searchbar';
 import { CategoryMenuComponent } from '../categorymenu/categorymenu'
-import trainings from '../../datas/trainings.json';
+import db from '../../datas/db.json';
 
 @Component({
   selector: 'app-trainings',
@@ -25,7 +25,7 @@ export class TrainingComponent implements OnInit {
   constructor(private readonly dialog: MatDialog,private readonly cartService: CartService) {}
 
   ngOnInit(): void {
-  this.listTrainings = trainings;
+  this.listTrainings = db.trainings;
   this.filteredTrainings = this.listTrainings;
   }
 
