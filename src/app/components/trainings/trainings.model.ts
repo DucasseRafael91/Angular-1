@@ -1,5 +1,5 @@
 export class Training {
-    id: number;
+    id: string;
     name: string;
     description: string;
     price: number;
@@ -7,7 +7,7 @@ export class Training {
     image : string;
     category : string;
 
-    constructor(id: number, name: string, description: string, price: number, quantity : number, image: string, category : string) {
+    constructor(id: string, name: string, description: string, price: number, quantity : number, image: string, category : string) {
         this.id = id;
         this.name = name;
         this.description = description;

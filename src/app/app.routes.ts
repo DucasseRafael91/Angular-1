@@ -8,12 +8,14 @@ import { OrderComponent } from './components/order/order';
 import { authAdminGuard } from './components/authAdminGuard/adminGuard';
 import { CreateTraining } from './components/create-training/create-training';  
 import { AccessDenied } from './components/access-denied/access-denied';
+import { AdminComponent } from './components/admin/admin';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'trainings', component: TrainingComponent },
     { path: 'cart', component: CartComponent },
     { path: 'customer', component: CustomerComponent },
+    { path: 'admin', component: AdminComponent, canActivate: [authAdminGuard] },
     { path: 'create', component: CreateTraining, canActivate: [authAdminGuard] },
     { path: 'order', component: OrderComponent },
     { path: 'denied', component: AccessDenied },

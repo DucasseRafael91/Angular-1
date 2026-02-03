@@ -19,7 +19,7 @@ export class CreateTraining implements OnInit {
     this.getAllTrainings();
   }
 
-  tr: Training = new Training(0, '', '', 0, 0, '', '');
+  tr: Training = new Training('', '', '', 0, 0, '', '');
   listTrainings: Training[] = [];
 
   getAllTrainings() {
@@ -34,7 +34,7 @@ export class CreateTraining implements OnInit {
   }
 
     OnSaveTraining(training: Training) {
-      training.id = this.listTrainings.length + 1;
+      training.id = (this.listTrainings.length + 1).toString();
       training.quantity = 1;
       this.apiTrainingService.createTraining(training).subscribe({
         next: (data) => {

@@ -18,11 +18,11 @@ export class ApiTrainingService {
     return this.http.post<Training>(environment.host+'/trainings', training);
   }
 
-  public getTrainingById(id:number){
+  public getTrainingById(id:string){
     return this.http.get<Training>(environment.host+'/trainings/'+id);
   }
 
-    public deleteTraining(id:number){
+    public deleteTraining(id:string){
     return this.http.delete(environment.host+'/trainings/'+id);
   }
 
