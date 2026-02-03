@@ -22,7 +22,6 @@
         <td>
           <button class="btn btn-success" (click)="onClickAddTraining()">Créer une formation</button>
         </td>
-        
       </tr>  
       <tr *ngFor="let training of listTrainings">
         <td>{{ training.id }}</td>
@@ -31,6 +30,7 @@
         <td>{{ training.quantity }}</td>
         <td>{{ training.price }}</td>
         <td>
+          <button class="btn btn-info" (click)="onEditTraining(training)">Modifier</button>
           <button class="btn btn-danger" (click)="onDeleteTraining(training.id)">Supprimer</button>
         </td>
       </tr>

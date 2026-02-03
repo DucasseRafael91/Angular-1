@@ -9,6 +9,7 @@ import { authAdminGuard } from './components/authAdminGuard/adminGuard';
 import { CreateTraining } from './components/create-training/create-training';  
 import { AccessDenied } from './components/access-denied/access-denied';
 import { AdminComponent } from './components/admin/admin';
+import { EditTrainingComponent } from './components/edit-training/edit-training';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -17,6 +18,7 @@ export const routes: Routes = [
     { path: 'customer', component: CustomerComponent },
     { path: 'admin', component: AdminComponent, canActivate: [authAdminGuard] },
     { path: 'create', component: CreateTraining, canActivate: [authAdminGuard] },
+    { path: 'edit/:id', component: EditTrainingComponent, canActivate: [authAdminGuard] },
     { path: 'order', component: OrderComponent },
     { path: 'denied', component: AccessDenied },
     { path: '', redirectTo: 'login', pathMatch: 'full' },

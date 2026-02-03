@@ -25,6 +25,10 @@ export class AdminComponent implements OnInit {
     this.router.navigate(['/create']);
   }
 
+  onEditTraining(training: any) {
+    this.router.navigate(['/edit', training.id]);
+  }
+
   getAllTrainings() {
     this.apiTrainingService.getTrainings().subscribe({
       next: (data) => {
