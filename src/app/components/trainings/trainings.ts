@@ -8,7 +8,7 @@ import { TrainingModalComponent } from '../training-modal/training-modal';
 import { NavBarComponent } from '../navbar/navbar';
 import { SearchBarComponent } from '../searchbar/searchbar';
 import { CategoryMenuComponent } from '../categorymenu/categorymenu'
-import { ApiTrainingService } from '../../services/api-training-service';
+import { ApiTrainingService } from '../../services/API/apiTraining/api-training-service';
 
 @Component({
   selector: 'app-trainings',
@@ -69,6 +69,7 @@ getAllTrainings() {
 onSearch(searchTerm?: string, categoryTerm?: string, priceTerm?: number) {
   const search = (searchTerm ?? this.searchTerm)?.toLowerCase();
   const category = (categoryTerm ?? this.categoryTerm)?.toLowerCase();
+
   const price = priceTerm ?? this.priceTerm;
 
   this.filteredTrainings = this.listTrainings.filter(training => {

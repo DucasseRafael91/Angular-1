@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
-import { UserApiService } from '../../services/user-api-service';
+import { UserApiService } from '../../services/API/userApi/user-api-service';
 import { EncryptionService } from '../../services/encryption-service';
 
 

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ApiTrainingService } from '../../services/api-training-service';
+import { ApiTrainingService } from '../../services/API/apiTraining/api-training-service';
 import { Training } from '../trainings/trainings.model';
 import { ChangeDetectorRef} from '@angular/core';
 
