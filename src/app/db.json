@@ -2,7 +2,7 @@
   "trainings": [
     {
       "id": "1",
-      "name": "Java TEST",
+      "name": "Java",
       "description": "Formation Java SE 8 sur 5 jours",
       "price": 1500,
       "quantity": 1,
