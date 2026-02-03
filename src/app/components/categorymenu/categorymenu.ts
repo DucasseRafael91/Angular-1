@@ -17,7 +17,7 @@ export class CategoryMenuComponent implements OnInit {
   constructor(private readonly apiTrainingService: ApiTrainingService, private readonly changeDetector: ChangeDetectorRef) {}
 
   listTrainings: Training[] = [];
-  uniqueCategories: string[] = [];
+  uniqueCategories: string[] = ["all"];
 
   categoryTerm: string = 'all';
   priceTerm: number = 0;
@@ -27,18 +27,25 @@ export class CategoryMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllTrainings();
+    this.getAllCategories();
+  }
+
+  getAllCategories(): string[] {
     const categoriesSet = new Set<string>();
     this.listTrainings.forEach(t => categoriesSet.add(t.category));
     this.uniqueCategories = Array.from(categoriesSet);
+    return Array.from(categoriesSet);
   }
 
-  getAllTrainings() {
+getAllTrainings() {
   this.apiTrainingService.getTrainings().subscribe({
-    next: (data) => {this.listTrainings = data ;
+    next: (data) => {
+      this.listTrainings = data;
+      this.getAllCategories();
+      console.log('Unique categories:', this.uniqueCategories);
     },
   });
 }
-
   onFilterChange() {
     this.categoryChange.emit(this.categoryTerm);
     this.priceChange.emit(this.priceTerm);

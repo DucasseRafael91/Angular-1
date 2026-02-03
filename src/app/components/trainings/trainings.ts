@@ -69,12 +69,13 @@ getAllTrainings() {
 onSearch(searchTerm?: string, categoryTerm?: string, priceTerm?: number) {
   const search = (searchTerm ?? this.searchTerm)?.toLowerCase();
   const category = (categoryTerm ?? this.categoryTerm)?.toLowerCase();
+  console
   const price = priceTerm ?? this.priceTerm;
 
   this.filteredTrainings = this.listTrainings.filter(training => {
 
     let matchesCategory: boolean;
-    if (category) {
+    if (category && category !== 'all') {
       matchesCategory = training.category.toLowerCase().includes(category);
     } 
     else {

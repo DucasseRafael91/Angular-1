@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { UserApiService } from '../../services/user-api-service';
+import { EncryptionService } from '../../services/encryption-service';
+
+
 
 @Component({
   selector: 'app-login',
@@ -12,10 +15,7 @@ import { UserApiService } from '../../services/user-api-service';
 })
 export class LoginComponent {
 
-  constructor(
-    private readonly router: Router,
-    private readonly userApiService: UserApiService
-  ) {}
+  constructor(private readonly router: Router,private readonly userApiService: UserApiService,private readonly encryptionService: EncryptionService) {}
 
 onLogin(form: NgForm): void {
   const mail = form.value.login;
@@ -23,15 +23,17 @@ onLogin(form: NgForm): void {
 
   this.userApiService.getUserByMail(mail).subscribe({
     next: (users) => {
-      if (users.length === 1 && users[0].password === password && this.validateEmail(mail)) {
-        localStorage.setItem('user', JSON.stringify(users[0]));
+      if (
+        users.length === 1 &&
+        users[0].password === password &&
+        this.validateEmail(mail)
+      ) {
+        const encryptedUser = this.encryptionService.encrypt(users[0]);
+        localStorage.setItem('user', encryptedUser);
         this.router.navigate(['/trainings']);
       } else {
-        console.error('Email ou mot de passe incorrect');
+        alert('Email ou mot de passe incorrect');
       }
-    },
-    error: (error) => {
-      console.error('Erreur lors du login :', error);
     }
   });
 }
