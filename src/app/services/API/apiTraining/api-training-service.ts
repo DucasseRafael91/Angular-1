@@ -14,7 +14,19 @@ export class ApiTrainingService {
     return this.http.get<Training[]>(environment.host+'/trainings');
   }
 
+    public createTraining(training: Training) {
+    return this.http.post<Training>(environment.host+'/trainings', training);
+  }
+
   public getTrainingById(id:number){
     return this.http.get<Training>(environment.host+'/trainings/'+id);
+  }
+
+    public deleteTraining(id:number){
+    return this.http.delete(environment.host+'/trainings/'+id);
+  }
+
+  public updateTraining(training: Training){
+    return this.http.put<Training>(environment.host+'/trainings/'+training.id, training);
   }
 }
