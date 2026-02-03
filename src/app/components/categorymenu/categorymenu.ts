@@ -42,7 +42,6 @@ getAllTrainings() {
     next: (data) => {
       this.listTrainings = data;
       this.getAllCategories();
-      console.log('Unique categories:', this.uniqueCategories);
     },
   });
 }

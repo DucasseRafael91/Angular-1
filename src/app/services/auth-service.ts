@@ -31,6 +31,16 @@ export class AuthService {
     return this.getUser() !== null;
   }
 
+isAdmin(): boolean {
+  const user = this.getUser();
+  if (user && user.roles?.includes('Admin')) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
   getUsername(): string {
     return this.getUser()?.name ?? '';
   }
