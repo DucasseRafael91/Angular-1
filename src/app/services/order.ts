@@ -9,17 +9,12 @@ export class OrderService {
   private orders: Order[] = [];
   private readonly storageKey = 'orders';
 
-  constructor() {
-    const storedOrders = localStorage.getItem(this.storageKey);
-    if (storedOrders) {
-      this.orders = JSON.parse(storedOrders);
-    }
-  }
+  constructor() {}
 
   createOrder(trainings: Training[]): Order {
     const newOrder = new Order(this.orders.length + 1, trainings,new Date());
     this.orders.push(newOrder);
-    this.saveOrders();
+    localStorage.setItem(this.storageKey, JSON.stringify(this.orders));
     return newOrder;
   }
 
@@ -27,7 +22,4 @@ export class OrderService {
     return this.orders;
   }
   
-  private saveOrders(): void {
-    localStorage.setItem(this.storageKey, JSON.stringify(this.orders));
-  }
 }

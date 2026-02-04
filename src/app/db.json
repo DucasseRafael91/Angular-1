@@ -114,26 +114,45 @@
       "id": "1",
       "mail": "elbab@gmail.com",
       "password": "1234",
-      "roles": [
-        "Admin",
-        "User"
-      ]
+      "roles": ["Admin", "User"]
     },
     {
       "id": "2",
       "mail": "hugo@gmail.com",
       "password": "1234",
-      "roles": [
-        "User"
-      ]
+      "roles": ["User"]
     },
     {
       "id": "3",
       "mail": "test",
       "password": "test",
-      "roles": [
-        "User"
-      ]
+      "roles": ["User"]
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "trainings": [
+        {
+          "id": "1",
+          "name": "Java",
+          "description": "Formation Java SE 8 sur 5 jours",
+          "price": 1500,
+          "quantity": 1,
+          "image": "images/java.png",
+          "category": "Java"
+        },
+        {
+          "id": "4",
+          "name": "Angular",
+          "description": "Formation Angular 16 avancé sur 4 jours",
+          "price": 1200,
+          "quantity": 1,
+          "image": "images/angular.png",
+          "category": "Frontend"
+        }
+      ],
+      "date": "2024-06-20T10:30:00Z"
     }
   ]
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef,Component, OnInit } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { OrderService } from '../../services/order';
+import { ApiOrder } from '../../services/API/apiOrder/api-order';
 import { Order } from '../../components/order/order.model';
 import { NavBarComponent } from '../navbar/navbar';
 
@@ -14,13 +14,18 @@ import { NavBarComponent } from '../navbar/navbar';
 export class OrderComponent implements OnInit {
   listOrders: Order[] = [];
 
-  constructor(private readonly orderService: OrderService) {}
+  constructor(private readonly apiOrder: ApiOrder, private readonly changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.loadOrders();
+    this.apiOrder.getOrders().subscribe({
+      next: (data) => {
+        this.listOrders = data;
+        this.changeDetectorRef.markForCheck();
+      },
+      error: (err) => {
+        console.error('Error fetching orders in component:', err);
+      }
+    }); 
   }
 
-  loadOrders(): void {
-    this.listOrders = this.orderService.getOrders();
-  }
 }

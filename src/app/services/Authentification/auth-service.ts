@@ -27,9 +27,7 @@ export class AuthService {
     }
 
     try {
-      console.log('Encrypted user from localStorage:', encryptedUser);
       const decryptedUser = this.decrypt(encryptedUser);
-      console.log('Decrypted user:', decryptedUser);
       return decryptedUser;
     } catch (error) {
       console.error('Erreur lors du déchiffrement du user:', error);
